@@ -15,6 +15,17 @@ while play:
     # 가져온 이벤트의 타입이 QUIT이면 반복문 종료
     if event.type == pygame.QUIT:
       play = False
+    # 만약 키보드를 눌렀다면
+    if event.type == pygame.KEYDOWN:
+      # 누른 키보드에 따라 알맞은 단어 출력
+      if event.key == pygame.K_UP:
+        print('UP')
+      elif event.key == pygame.K_DOWN:
+        print('DOWN')
+      elif event.key == pygame.K_RIGHT:
+        print('RIGHT')
+      elif event.key == pygame.K_LEFT:
+        print('LEFT')
 
 # 게임 종료
 pygame.quit()
