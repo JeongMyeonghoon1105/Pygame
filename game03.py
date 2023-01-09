@@ -2,10 +2,15 @@ import pygame
 
 # pygame 시작 함수 실행
 pygame.init()
-# 배경 설정
+# 실행창 설정
 background = pygame.display.set_mode((600, 480))
 # 게임 실행창 제목 설정
-pygame.display.set_caption("Game 02")
+pygame.display.set_caption("Game 03")
+
+# x_pos = background.get_size()[0] // 2
+# y_pos = background.get_size()[1] // 2
+x_pos = 300
+y_pos = 240
 
 # 무한 반복을 통해 게임 실행
 play = True
@@ -17,25 +22,23 @@ while play:
       play = False
     # 만약 키보드를 눌렀다면
     if event.type == pygame.KEYDOWN:
-      # 누른 키보드에 따라 알맞은 단어 출력
-      # if event.key == pygame.K_UP:
-      #   print('UP')
-      # elif event.key == pygame.K_DOWN:
-      #   print('DOWN')
-      # elif event.key == pygame.K_RIGHT:
-      #   print('RIGHT')
-      # elif event.key == pygame.K_LEFT:
-      #   print('LEFT')
       if event.key == 119:
-        print('UP')
+        y_pos -= 10
       elif event.key == 115:
-        print('DOWN')
+        y_pos += 10
       elif event.key == 100:
-        print('RIGHT')
-      elif event.key == 108:
-        print('LEFT')
+        x_pos += 10
+      elif event.key == 97:
+        x_pos -= 10
     if event.type == pygame.MOUSEBUTTONUP:
       print('CLICK')
+
+    # 배경을 흰색으로 설정
+    background.fill((255, 255, 255))
+    # 원 그리기(원을 생성할 실행창, 원 색깔, 좌표, 지름)
+    pygame.draw.circle(background, (0, 0, 255), (x_pos, y_pos), 5)
+    # 디스플레이 업데이트
+    pygame.display.update()
 
 # 게임 종료
 pygame.quit()
