@@ -61,6 +61,5 @@ while play:
     # 디스플레이 업데이트
     pygame.display.update()
 
-
 # 게임 종료
 pygame.quit()
