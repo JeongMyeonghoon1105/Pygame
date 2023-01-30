@@ -17,22 +17,13 @@ while play:
       play = False
     # 만약 키보드를 눌렀다면
     if event.type == pygame.KEYDOWN:
-      # 누른 키보드에 따라 알맞은 단어 출력
-      # if event.key == pygame.K_UP:
-      #   print('UP')
-      # elif event.key == pygame.K_DOWN:
-      #   print('DOWN')
-      # elif event.key == pygame.K_RIGHT:
-      #   print('RIGHT')
-      # elif event.key == pygame.K_LEFT:
-      #   print('LEFT')
       if event.key == 119:
         print('UP')
       elif event.key == 115:
         print('DOWN')
       elif event.key == 100:
         print('RIGHT')
-      elif event.key == 108:
+      elif event.key == 97:
         print('LEFT')
     if event.type == pygame.MOUSEBUTTONUP:
       print('CLICK')
