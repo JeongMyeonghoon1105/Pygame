@@ -4,6 +4,7 @@ import pygame
 pygame.init()
 # 실행창 설정
 background = pygame.display.set_mode((600, 480))
+# background = pygame.image.load()
 # 게임 실행창 제목 설정
 pygame.display.set_caption("Game 04")
 
@@ -56,6 +57,7 @@ while play:
     background.fill((255, 255, 255))
     # 원 그리기(원을 생성할 실행창, 원 색깔, 좌표, 지름)
     pygame.draw.circle(background, (0, 0, 255), (x_pos, y_pos), 5)
+    # screen.blit(background, (0, 0))
     # 디스플레이 업데이트
     pygame.display.update()
 
