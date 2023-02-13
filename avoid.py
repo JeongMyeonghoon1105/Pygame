@@ -1,8 +1,10 @@
 import pygame
 import random
+import time
 
 # pygame 시작 함수 실행
 pygame.init()
+start = time.time()
 # 실행창 설정
 background = pygame.display.set_mode((600, 600))
 # background = pygame.image.load()
@@ -35,10 +37,12 @@ x = 300
 y = 400
 score = 5
 collide = False
+finish = False
 
 # 무한 반복을 통해 게임 실행
 play = True
 while play:
+  end = time.time()
   # 1초에 60회만 실행하도록 함
   deltaTime = fps.tick(60)
   # pygame 이벤트 가져오기
@@ -50,6 +54,20 @@ while play:
     screen = pygame.image.load('./assets/gameover.png')
     screen = pygame.transform.scale(screen, (800, 600))
     background.blit(screen, (-100, 0))
+    if not finish:
+      print('경과 시간 : ' + str(int(end - start)) + '초')
+      finish = True
+    time.sleep(2)
+    play = False
+  elif end - start > 20:
+    screen = pygame.image.load('./assets/complete.jpg')
+    screen = pygame.transform.scale(screen, (800, 600))
+    background.blit(screen, (-100, 0))
+    if not finish:
+      print('경과 시간 : ' + str(int(end - start)) + '초')
+      finish = True
+    time.sleep(2)
+    play = False
   else:
     # 키보드 입력 체크 
     key = pygame.key.get_pressed()
@@ -118,6 +136,5 @@ while play:
     background.blit(e4, (e4_x, e4_y))
   # 디스플레이 업데이트
   pygame.display.update()
-
 # 게임 종료
 pygame.quit()
